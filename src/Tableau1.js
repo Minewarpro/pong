@@ -14,6 +14,8 @@ class Tableau1 extends Phaser.Scene{
         this.load.image('carreBordOmbre', 'assets/carreBordOmbre.png');
         this.load.image('carreVertOmbre', 'assets/carreVertOmbre.png');
         this.load.image('carreVert', 'assets/carreVert.png');
+        this.load.audio('raquetteSound', 'assets/sounds/raquetteSound.wav');
+        this.load.audio('vertSound', 'assets/sounds/vertSound.wav');
     }
 
 
@@ -31,6 +33,9 @@ class Tableau1 extends Phaser.Scene{
 
         this.emitter.startFollow(this.balle);
          */
+
+        this.vertSound = this.sound.add('vertSound');
+        this.raquetteSound = this.sound.add('raquetteSound');
 
         this.hauteur = 500
         this.largeur = 1000
@@ -169,6 +174,8 @@ class Tableau1 extends Phaser.Scene{
         this.droit.body.setAllowGravity(false);
         this.droit.setImmovable(true);
 
+        //Balle
+
         this.balle = this.physics.add.sprite(this.largeur/2, this.hauteur/2, 'cercle');
         this.balle.setDisplaySize(20,20);
         this.balle.body.setBounce(1.5,1.5);
@@ -178,14 +185,18 @@ class Tableau1 extends Phaser.Scene{
 
         this.Initiale();
 
+        //Collider
+
         let me = this;
         this.physics.add.collider(this.balle, this.droit, function () {
             console.log("touche droit");
             me.rebond(me.droit);
+            me.sound.play('raquetteSound')
         });
         this.physics.add.collider(this.balle, this.gauche,  function () {
             console.log("touche gauche");
             me.rebond(me.gauche);
+            me.sound.play('raquetteSound')
         });
 
 
@@ -379,6 +390,7 @@ class Tableau1 extends Phaser.Scene{
                 this.droitVert.setVisible(false);
                 this.droitVertOmbre.setVisible(false);
                 this.physics.world.removeCollider(this.collider0);
+                this.sound.play('vertSound');
             }
         }
         if (this.balle.x >= this.droitVert1.x-10 && this.balle.y >= this.droitVert1.y-5){
@@ -386,6 +398,7 @@ class Tableau1 extends Phaser.Scene{
                 this.droitVert1.setVisible(false);
                 this.droitVertOmbre1.setVisible(false);
                 this.physics.world.removeCollider(this.collider1);
+                this.sound.play('vertSound');
             }
         }
         if (this.balle.x >= this.droitVert2.x-10 && this.balle.y >= this.droitVert2.y-5){
@@ -393,6 +406,7 @@ class Tableau1 extends Phaser.Scene{
                 this.droitVert2.setVisible(false);
                 this.droitVertOmbre2.setVisible(false);
                 this.physics.world.removeCollider(this.collider2);
+                this.sound.play('vertSound');
             }
         }
 
@@ -401,6 +415,7 @@ class Tableau1 extends Phaser.Scene{
                 this.droitVert3.setVisible(false);
                 this.droitVertOmbre3.setVisible(false);
                 this.physics.world.removeCollider(this.collider3);
+                this.sound.play('vertSound');
             }
 
         }
@@ -410,6 +425,7 @@ class Tableau1 extends Phaser.Scene{
                 this.gaucheVert.setVisible(false);
                 this.gaucheVertOmbre.setVisible(false);
                 this.physics.world.removeCollider(this.collider4);
+                this.sound.play('vertSound');
             }
         }
         if (this.balle.x <= this.gaucheVert1.x+30 && this.balle.y >= this.gaucheVert1.y-5){
@@ -417,6 +433,7 @@ class Tableau1 extends Phaser.Scene{
                 this.gaucheVert1.setVisible(false);
                 this.gaucheVertOmbre1.setVisible(false);
                 this.physics.world.removeCollider(this.collider5);
+                this.sound.play('vertSound');
             }
         }
         if (this.balle.x <= this.gaucheVert2.x+30 && this.balle.y >= this.gaucheVert2.y-5){
@@ -424,6 +441,7 @@ class Tableau1 extends Phaser.Scene{
                 this.gaucheVert2.setVisible(false);
                 this.gaucheVertOmbre2.setVisible(false);
                 this.physics.world.removeCollider(this.collider6);
+                this.sound.play('vertSound');
             }
         }
 
@@ -432,6 +450,7 @@ class Tableau1 extends Phaser.Scene{
                 this.gaucheVert3.setVisible(false);
                 this.gaucheVertOmbre3.setVisible(false);
                 this.physics.world.removeCollider(this.collider3);
+                this.sound.play('vertSound');
             }
         }
     }
