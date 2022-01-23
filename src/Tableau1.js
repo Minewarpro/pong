@@ -35,7 +35,7 @@ class Tableau1 extends Phaser.Scene{
         this.hauteur = 500
         this.largeur = 1000
 
-        //Carrés Vert
+        //Carrés Vert droit
 
         this.droitVertOmbre = this.physics.add.sprite(this.largeur-45, this.hauteur-155, 'carreVertOmbre').setOrigin(0,0);
         this.droitVertOmbre.setDisplaySize(50,150);
@@ -77,7 +77,50 @@ class Tableau1 extends Phaser.Scene{
         this.droitVert3.body.setAllowGravity(false);
         this.droitVert3.setImmovable(true);
 
+        //Carrés Vert Gauche
 
+        this.gaucheVertOmbre = this.physics.add.sprite(-5, this.hauteur-155, 'carreVertOmbre').setOrigin(0,0);
+        this.gaucheVertOmbre.setDisplaySize(50,150);
+        this.gaucheVertOmbre.body.setAllowGravity(false);
+        this.gaucheVertOmbre.setImmovable(true);
+
+        this.gaucheVert = this.physics.add.sprite(10,this.hauteur-130, 'carreVert').setOrigin(0,0);
+        this.gaucheVert.setDisplaySize(20,100);
+        this.gaucheVert.body.setAllowGravity(false);
+        this.gaucheVert.setImmovable(true);
+
+        this.gaucheVertOmbre1 = this.physics.add.sprite(-5, this.hauteur-270, 'carreVertOmbre').setOrigin(0,0);
+        this.gaucheVertOmbre1.setDisplaySize(50,150);
+        this.gaucheVertOmbre1.body.setAllowGravity(false);
+        this.gaucheVertOmbre1.setImmovable(true);
+
+        this.gaucheVert1 = this.physics.add.sprite(10,this.hauteur-245, 'carreVert').setOrigin(0,0);
+        this.gaucheVert1.setDisplaySize(20,100);
+        this.gaucheVert1.body.setAllowGravity(false);
+        this.gaucheVert1.setImmovable(true);
+
+        this.gaucheVertOmbre2 = this.physics.add.sprite(-5, this.hauteur-385, 'carreVertOmbre').setOrigin(0,0);
+        this.gaucheVertOmbre2.setDisplaySize(50,150);
+        this.gaucheVertOmbre2.body.setAllowGravity(false);
+        this.gaucheVertOmbre2.setImmovable(true);
+
+        this.gaucheVert2 = this.physics.add.sprite(10,this.hauteur-360, 'carreVert').setOrigin(0,0);
+        this.gaucheVert2.setDisplaySize(20,100);
+        this.gaucheVert2.body.setAllowGravity(false);
+        this.gaucheVert2.setImmovable(true);
+
+        this.gaucheVertOmbre3 = this.physics.add.sprite(-5, this.hauteur-500, 'carreVertOmbre').setOrigin(0,0);
+        this.gaucheVertOmbre3.setDisplaySize(50,150);
+        this.gaucheVertOmbre3.body.setAllowGravity(false);
+        this.gaucheVertOmbre3.setImmovable(true);
+
+        this.gaucheVert3 = this.physics.add.sprite(10,this.hauteur-475, 'carreVert').setOrigin(0,0);
+        this.gaucheVert3.setDisplaySize(20,100);
+        this.gaucheVert3.body.setAllowGravity(false);
+        this.gaucheVert3.setImmovable(true);
+
+        //Autre carré
+        
         this.centre1Ombre = this.physics.add.sprite(this.largeur/2-5, 0, 'carreBordOmbre').setOrigin(0,0);
         this.centre1Ombre.setDisplaySize(10,this.hauteur);
         this.centre1Ombre.body.setAllowGravity(false);
@@ -221,6 +264,36 @@ class Tableau1 extends Phaser.Scene{
         });
         this.droitVert3.setVisible(true);
         this.droitVertOmbre3.setVisible(true);
+
+        
+        
+        this.collider4 = this.physics.add.collider(this.balle, this.gaucheVert, function () {
+            console.log("touche gaucheVert");
+            me.rebond(me.gaucheVert);
+        });
+        this.gaucheVert.setVisible(true);
+        this.gaucheVertOmbre.setVisible(true);
+
+        this.collider5 = this.physics.add.collider(this.balle, this.gaucheVert1, function () {
+            console.log("touche gaucheVert");
+            me.rebond(me.gaucheVert1);
+        });
+        this.gaucheVert1.setVisible(true);
+        this.gaucheVertOmbre1.setVisible(true);
+
+        this.collider6 = this.physics.add.collider(this.balle, this.gaucheVert2, function () {
+            console.log("touche gaucheVert");
+            me.rebond(me.gaucheVert2);
+        });
+        this.gaucheVert2.setVisible(true);
+        this.gaucheVertOmbre2.setVisible(true);
+
+        this.collider7 = this.physics.add.collider(this.balle, this.gaucheVert3, function () {
+            console.log("touche gaucheVert");
+            me.rebond(me.gaucheVert3);
+        });
+        this.gaucheVert3.setVisible(true);
+        this.gaucheVertOmbre3.setVisible(true);
     }
 
     /**
@@ -302,29 +375,64 @@ class Tableau1 extends Phaser.Scene{
             this.balle.y = this.hauteur
         }
         if (this.balle.x >= this.droitVert.x-10 && this.balle.y >= this.droitVert.y){
-            if (this.balle.y <= this.droitVert.y+110)
+            if (this.balle.y <= this.droitVert.y+110) {
                 this.droitVert.setVisible(false);
                 this.droitVertOmbre.setVisible(false);
                 this.physics.world.removeCollider(this.collider0);
+            }
         }
         if (this.balle.x >= this.droitVert1.x-10 && this.balle.y >= this.droitVert1.y-5){
-            if (this.balle.y <= this.droitVert1.y+110)
+            if (this.balle.y <= this.droitVert1.y+110) {
                 this.droitVert1.setVisible(false);
                 this.droitVertOmbre1.setVisible(false);
                 this.physics.world.removeCollider(this.collider1);
+            }
         }
         if (this.balle.x >= this.droitVert2.x-10 && this.balle.y >= this.droitVert2.y-5){
-            if (this.balle.y <= this.droitVert2.y+110)
+            if (this.balle.y <= this.droitVert2.y+110) {
                 this.droitVert2.setVisible(false);
                 this.droitVertOmbre2.setVisible(false);
                 this.physics.world.removeCollider(this.collider2);
+            }
         }
 
         if (this.balle.x >= this.droitVert3.x-10 && this.balle.y >= this.droitVert3.y-5){
-            if (this.balle.y <= this.droitVert3.y+110)
+            if (this.balle.y <= this.droitVert3.y+110){
                 this.droitVert3.setVisible(false);
-            this.droitVertOmbre3.setVisible(false);
-            this.physics.world.removeCollider(this.collider3);
+                this.droitVertOmbre3.setVisible(false);
+                this.physics.world.removeCollider(this.collider3);
+            }
+
+        }
+
+        if (this.balle.x <= this.gaucheVert.x+30 && this.balle.y >= this.gaucheVert.y){
+            if (this.balle.y <= this.gaucheVert.y+110) {
+                this.gaucheVert.setVisible(false);
+                this.gaucheVertOmbre.setVisible(false);
+                this.physics.world.removeCollider(this.collider4);
+            }
+        }
+        if (this.balle.x <= this.gaucheVert1.x+30 && this.balle.y >= this.gaucheVert1.y-5){
+            if (this.balle.y <= this.gaucheVert1.y+110) {
+                this.gaucheVert1.setVisible(false);
+                this.gaucheVertOmbre1.setVisible(false);
+                this.physics.world.removeCollider(this.collider5);
+            }
+        }
+        if (this.balle.x <= this.gaucheVert2.x+30 && this.balle.y >= this.gaucheVert2.y-5){
+            if (this.balle.y <= this.gaucheVert2.y+110) {
+                this.gaucheVert2.setVisible(false);
+                this.gaucheVertOmbre2.setVisible(false);
+                this.physics.world.removeCollider(this.collider6);
+            }
+        }
+
+        if (this.balle.x <= this.gaucheVert3.x+30 && this.balle.y >= this.gaucheVert3.y-5){
+            if (this.balle.y <= this.gaucheVert3.y+110) {
+                this.gaucheVert3.setVisible(false);
+                this.gaucheVertOmbre3.setVisible(false);
+                this.physics.world.removeCollider(this.collider3);
+            }
         }
     }
 
