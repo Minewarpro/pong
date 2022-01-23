@@ -12,6 +12,8 @@ class Tableau1 extends Phaser.Scene{
         this.load.image('cercleOmbre', 'assets/cercleOmbre.png');
         this.load.image('carreBord', 'assets/carreBord.png');
         this.load.image('carreBordOmbre', 'assets/carreBordOmbre.png');
+        this.load.image('carreVertOmbre', 'assets/carreVertOmbre.png');
+        this.load.image('carreVert', 'assets/carreVert.png');
     }
 
 
@@ -33,6 +35,49 @@ class Tableau1 extends Phaser.Scene{
         this.hauteur = 500
         this.largeur = 1000
 
+        //Carrés Vert
+
+        this.droitVertOmbre = this.physics.add.sprite(this.largeur-45, this.hauteur-155, 'carreVertOmbre').setOrigin(0,0);
+        this.droitVertOmbre.setDisplaySize(50,150);
+        this.droitVertOmbre.body.setAllowGravity(false);
+        this.droitVertOmbre.setImmovable(true);
+
+        this.droitVert = this.physics.add.sprite(this.largeur-30,this.hauteur-130, 'carreVert').setOrigin(0,0);
+        this.droitVert.setDisplaySize(20,100);
+        this.droitVert.body.setAllowGravity(false);
+        this.droitVert.setImmovable(true);
+
+        this.droitVertOmbre1 = this.physics.add.sprite(this.largeur-45, this.hauteur-270, 'carreVertOmbre').setOrigin(0,0);
+        this.droitVertOmbre1.setDisplaySize(50,150);
+        this.droitVertOmbre1.body.setAllowGravity(false);
+        this.droitVertOmbre1.setImmovable(true);
+
+        this.droitVert1 = this.physics.add.sprite(this.largeur-30,this.hauteur-245, 'carreVert').setOrigin(0,0);
+        this.droitVert1.setDisplaySize(20,100);
+        this.droitVert1.body.setAllowGravity(false);
+        this.droitVert1.setImmovable(true);
+
+        this.droitVertOmbre2 = this.physics.add.sprite(this.largeur-45, this.hauteur-385, 'carreVertOmbre').setOrigin(0,0);
+        this.droitVertOmbre2.setDisplaySize(50,150);
+        this.droitVertOmbre2.body.setAllowGravity(false);
+        this.droitVertOmbre2.setImmovable(true);
+
+        this.droitVert2 = this.physics.add.sprite(this.largeur-30,this.hauteur-360, 'carreVert').setOrigin(0,0);
+        this.droitVert2.setDisplaySize(20,100);
+        this.droitVert2.body.setAllowGravity(false);
+        this.droitVert2.setImmovable(true);
+
+        this.droitVertOmbre3 = this.physics.add.sprite(this.largeur-45, this.hauteur-500, 'carreVertOmbre').setOrigin(0,0);
+        this.droitVertOmbre3.setDisplaySize(50,150);
+        this.droitVertOmbre3.body.setAllowGravity(false);
+        this.droitVertOmbre3.setImmovable(true);
+
+        this.droitVert3 = this.physics.add.sprite(this.largeur-30,this.hauteur-475, 'carreVert').setOrigin(0,0);
+        this.droitVert3.setDisplaySize(20,100);
+        this.droitVert3.body.setAllowGravity(false);
+        this.droitVert3.setImmovable(true);
+
+
         this.centre1Ombre = this.physics.add.sprite(this.largeur/2-5, 0, 'carreBordOmbre').setOrigin(0,0);
         this.centre1Ombre.setDisplaySize(10,this.hauteur);
         this.centre1Ombre.body.setAllowGravity(false);
@@ -50,9 +95,6 @@ class Tableau1 extends Phaser.Scene{
         this.haut.setImmovable(true);
 
 
-
-
-
         this.basOmbre=this.physics.add.sprite(-this.largeur/2,this.hauteur-15, 'carreBordOmbre').setOrigin(0,0);
         this.basOmbre.setDisplaySize(this.largeur*2,20);
         this.basOmbre.body.setAllowGravity(false);
@@ -64,22 +106,22 @@ class Tableau1 extends Phaser.Scene{
         this.bas.setImmovable(true);
 
 
-        this.gaucheOmbre = this.physics.add.sprite(-5, this.hauteur/2-75, 'carreOmbre').setOrigin(0,0);
+        this.gaucheOmbre = this.physics.add.sprite(45, this.hauteur/2-75, 'carreOmbre').setOrigin(0,0);
         this.gaucheOmbre.setDisplaySize(50,150);
         this.gaucheOmbre.body.setAllowGravity(false);
         this.gaucheOmbre.setImmovable(true);
 
-        this.gauche = this.physics.add.sprite(10, this.hauteur/2-50, 'carre').setOrigin(0,0);
+        this.gauche = this.physics.add.sprite(60, this.hauteur/2-50, 'carre').setOrigin(0,0);
         this.gauche.setDisplaySize(20,100);
         this.gauche.body.setAllowGravity(false);
         this.gauche.setImmovable(true);
 
-        this.droitOmbre = this.physics.add.sprite(this.largeur-45, this.hauteur/2-75, 'carreOmbre').setOrigin(0,0);
+        this.droitOmbre = this.physics.add.sprite(this.largeur-95, this.hauteur/2-75, 'carreOmbre').setOrigin(0,0);
         this.droitOmbre.setDisplaySize(50,150);
         this.droitOmbre.body.setAllowGravity(false);
         this.droitOmbre.setImmovable(true);
 
-        this.droit=this.physics.add.sprite(this.largeur-30,this.hauteur/2-50, 'carre').setOrigin(0,0);
+        this.droit=this.physics.add.sprite(this.largeur-80,this.hauteur/2-50, 'carre').setOrigin(0,0);
         this.droit.setDisplaySize(20,100);
         this.droit.body.setAllowGravity(false);
         this.droit.setImmovable(true);
@@ -89,6 +131,7 @@ class Tableau1 extends Phaser.Scene{
         this.balle.body.setBounce(1.5,1.5);
         this.balle.body.setMaxVelocityX(500,500)
         this.balle.body.setMaxVelocityY(100,100)
+
 
         this.Initiale();
 
@@ -101,6 +144,7 @@ class Tableau1 extends Phaser.Scene{
             console.log("touche gauche");
             me.rebond(me.gauche);
         });
+
 
         this.physics.add.collider(this.balle, this.haut);
         this.physics.add.collider(this.balle, this.bas);
@@ -133,6 +177,8 @@ class Tableau1 extends Phaser.Scene{
 
     }
     Initiale (){
+        let me = this
+
         this.balle.setX(this.largeur/2);
         this.balle.setY(this.hauteur/2);
 
@@ -147,6 +193,34 @@ class Tableau1 extends Phaser.Scene{
 
         this.balle.setVelocityY(0);
 
+
+        this.collider0 = this.physics.add.collider(this.balle, this.droitVert, function () {
+            console.log("touche droitVert");
+            me.rebond(me.droitVert);
+        });
+        this.droitVert.setVisible(true);
+        this.droitVertOmbre.setVisible(true);
+
+        this.collider1 = this.physics.add.collider(this.balle, this.droitVert1, function () {
+            console.log("touche droitVert");
+            me.rebond(me.droitVert1);
+        });
+        this.droitVert1.setVisible(true);
+        this.droitVertOmbre1.setVisible(true);
+
+        this.collider2 = this.physics.add.collider(this.balle, this.droitVert2, function () {
+            console.log("touche droitVert");
+            me.rebond(me.droitVert2);
+        });
+        this.droitVert2.setVisible(true);
+        this.droitVertOmbre2.setVisible(true);
+
+        this.collider3 = this.physics.add.collider(this.balle, this.droitVert3, function () {
+            console.log("touche droitVert");
+            me.rebond(me.droitVert3);
+        });
+        this.droitVert3.setVisible(true);
+        this.droitVertOmbre3.setVisible(true);
     }
 
     /**
@@ -227,7 +301,31 @@ class Tableau1 extends Phaser.Scene{
         if(this.balle.y > this.hauteur){
             this.balle.y = this.hauteur
         }
+        if (this.balle.x >= this.droitVert.x-10 && this.balle.y >= this.droitVert.y){
+            if (this.balle.y <= this.droitVert.y+110)
+                this.droitVert.setVisible(false);
+                this.droitVertOmbre.setVisible(false);
+                this.physics.world.removeCollider(this.collider0);
+        }
+        if (this.balle.x >= this.droitVert1.x-10 && this.balle.y >= this.droitVert1.y-5){
+            if (this.balle.y <= this.droitVert1.y+110)
+                this.droitVert1.setVisible(false);
+                this.droitVertOmbre1.setVisible(false);
+                this.physics.world.removeCollider(this.collider1);
+        }
+        if (this.balle.x >= this.droitVert2.x-10 && this.balle.y >= this.droitVert2.y-5){
+            if (this.balle.y <= this.droitVert2.y+110)
+                this.droitVert2.setVisible(false);
+                this.droitVertOmbre2.setVisible(false);
+                this.physics.world.removeCollider(this.collider2);
+        }
 
+        if (this.balle.x >= this.droitVert3.x-10 && this.balle.y >= this.droitVert3.y-5){
+            if (this.balle.y <= this.droitVert3.y+110)
+                this.droitVert3.setVisible(false);
+            this.droitVertOmbre3.setVisible(false);
+            this.physics.world.removeCollider(this.collider3);
+        }
     }
 
 
