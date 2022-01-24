@@ -21,19 +21,6 @@ class Tableau1 extends Phaser.Scene{
 
     create(){
 
-        /**
-         * this.particles = this.add.particles('cercle');
-
-
-        this.emitter = this.particles.createEmitter({
-            speed: 50,
-            scale: { start: 0.1, end: 0 },
-            blendMode: 'ADD'
-        });
-
-        this.emitter.startFollow(this.balle);
-         */
-
         this.vertSound = this.sound.add('vertSound');
         this.raquetteSound = this.sound.add('raquetteSound');
 
@@ -41,18 +28,48 @@ class Tableau1 extends Phaser.Scene{
         this.largeur = 1000
 
         //Carrés Vert droit
+        let rect,ombre;
+        this.obstacles=[];
+        let ecart=119;
 
-        this.droitVertOmbre = this.physics.add.sprite(this.largeur-45, this.hauteur-155, 'carreVertOmbre').setOrigin(0,0);
-        this.droitVertOmbre.setDisplaySize(50,150);
-        this.droitVertOmbre.body.setAllowGravity(false);
-        this.droitVertOmbre.setImmovable(true);
+        for(let i=0;i<4;i++){
+            ombre = this.physics.add.sprite(
+                this.largeur-46,
+                +i*115,
+                'carreVertOmbre'
+            ).setOrigin(0,0);
 
-        this.droitVert = this.physics.add.sprite(this.largeur-30,this.hauteur-130, 'carreVert').setOrigin(0,0);
-        this.droitVert.setDisplaySize(20,100);
-        this.droitVert.body.setAllowGravity(false);
-        this.droitVert.setImmovable(true);
+            ombre.setDisplaySize(50,150);
+            ombre.body.setAllowGravity(false);
+            ombre.setImmovable(true);
 
-        this.droitVertOmbre1 = this.physics.add.sprite(this.largeur-45, this.hauteur-270, 'carreVertOmbre').setOrigin(0,0);
+            rect = this.physics.add.sprite(this.largeur-30,25+i*115,
+                'carreVert').setOrigin(0,0);
+            rect.setDisplaySize(20,100);
+            rect.body.setAllowGravity(false);
+            rect.setImmovable(true);
+            rect.ombre=ombre;
+
+
+            this.physics.add.collider(this.balle, rect, function () {
+                console.log("touche droitVert");
+                me.rebond(rect);
+                me.disparait(rect);
+            });
+
+            this.obstacles.push(rect);
+
+            ecart++;
+        }
+
+
+
+        this.droitVertOmbre=ombre;
+        this.droitVert=rect;
+
+
+
+        /**this.droitVertOmbre1 = this.physics.add.sprite(this.largeur-45, this.hauteur-270, 'carreVertOmbre').setOrigin(0,0);
         this.droitVertOmbre1.setDisplaySize(50,150);
         this.droitVertOmbre1.body.setAllowGravity(false);
         this.droitVertOmbre1.setImmovable(true);
@@ -80,7 +97,7 @@ class Tableau1 extends Phaser.Scene{
         this.droitVert3 = this.physics.add.sprite(this.largeur-30,this.hauteur-475, 'carreVert').setOrigin(0,0);
         this.droitVert3.setDisplaySize(20,100);
         this.droitVert3.body.setAllowGravity(false);
-        this.droitVert3.setImmovable(true);
+        this.droitVert3.setImmovable(true);*/
 
         //Carrés Vert Gauche
 
@@ -199,6 +216,23 @@ class Tableau1 extends Phaser.Scene{
             me.sound.play('raquetteSound')
         });
 
+        //Particles
+
+         this.particles = this.add.particles('cercle');
+
+         this.particles.createEmitter({
+            speed: 50,
+             angle: this.balle.x+30,
+            scale: { start: 0.05, end: 0 },
+            blendMode: 'ADD',
+             follow: this.balle,
+             frequency: 1,
+             lifespan: {min :200, max : 200},
+             x: this.balle.x,
+             y: this.balle.y,
+             //emitZone: { type: 'edge', source: path, quantity: 48, yoyo: false },
+        });
+
 
         this.physics.add.collider(this.balle, this.haut);
         this.physics.add.collider(this.balle, this.bas);
@@ -230,11 +264,23 @@ class Tableau1 extends Phaser.Scene{
         this.balle.setVelocityY( this.balle.body.velocity.y + positionRelativeRaquette * hauteurRaquette)
 
     }
+
+    disparait(obstacle){
+        let me=this;
+        obstacle.disableBody(true);
+        obstacle.setVisible(false);
+        obstacle.ombre.setVisible(false);
+    }
+
     Initiale (){
         let me = this
 
         this.balle.setX(this.largeur/2);
         this.balle.setY(this.hauteur/2);
+        this.gauche.setY(this.hauteur/2-50);
+        this.droit.setY(this.hauteur/2-50);
+        this.droitOmbre.setY(this.hauteur/2-75);
+        this.gaucheOmbre.setY(this.hauteur/2-75);
 
         let pourcent = Phaser.Math.Between(0, 100)
 
@@ -247,10 +293,15 @@ class Tableau1 extends Phaser.Scene{
 
         this.balle.setVelocityY(0);
 
+        for(let i=0;i<me.obstacles.length;i++){
+            me.obstacles[i].setVisible(true);
+            me.obstacles[i].ombre.setVisible(true);
+        }
 
-        this.collider0 = this.physics.add.collider(this.balle, this.droitVert, function () {
+        /**this.collider0 = this.physics.add.collider(this.balle, this.droitVert, function () {
             console.log("touche droitVert");
             me.rebond(me.droitVert);
+            me.disparait(me.droitVert);
         });
         this.droitVert.setVisible(true);
         this.droitVertOmbre.setVisible(true);
@@ -304,7 +355,7 @@ class Tableau1 extends Phaser.Scene{
             me.rebond(me.gaucheVert3);
         });
         this.gaucheVert3.setVisible(true);
-        this.gaucheVertOmbre3.setVisible(true);
+        this.gaucheVertOmbre3.setVisible(true);*/
     }
 
     /**
@@ -385,7 +436,7 @@ class Tableau1 extends Phaser.Scene{
         if(this.balle.y > this.hauteur){
             this.balle.y = this.hauteur
         }
-        if (this.balle.x >= this.droitVert.x-10 && this.balle.y >= this.droitVert.y){
+        /**if (this.balle.x >= this.droitVert.x-10 && this.balle.y >= this.droitVert.y){
             if (this.balle.y <= this.droitVert.y+110) {
                 this.droitVert.setVisible(false);
                 this.droitVertOmbre.setVisible(false);
@@ -452,7 +503,7 @@ class Tableau1 extends Phaser.Scene{
                 this.physics.world.removeCollider(this.collider3);
                 this.sound.play('vertSound');
             }
-        }
+        }*/
     }
 
 
