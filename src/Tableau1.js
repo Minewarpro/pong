@@ -27,120 +27,6 @@ class Tableau1 extends Phaser.Scene{
         this.hauteur = 500
         this.largeur = 1000
 
-        //Carrés Vert droit
-        let rect,ombre;
-        this.obstacles=[];
-        let ecart=119;
-
-        for(let i=0;i<4;i++){
-            ombre = this.physics.add.sprite(
-                this.largeur-46,
-                +i*115,
-                'carreVertOmbre'
-            ).setOrigin(0,0);
-
-            ombre.setDisplaySize(50,150);
-            ombre.body.setAllowGravity(false);
-            ombre.setImmovable(true);
-
-            rect = this.physics.add.sprite(this.largeur-30,25+i*115,
-                'carreVert').setOrigin(0,0);
-            rect.setDisplaySize(20,100);
-            rect.body.setAllowGravity(false);
-            rect.setImmovable(true);
-            rect.ombre=ombre;
-
-
-            this.physics.add.collider(this.balle, rect, function () {
-                console.log("touche droitVert");
-                me.rebond(rect);
-                me.disparait(rect);
-            });
-
-            this.obstacles.push(rect);
-
-            ecart++;
-        }
-
-
-
-        this.droitVertOmbre=ombre;
-        this.droitVert=rect;
-
-
-
-        /**this.droitVertOmbre1 = this.physics.add.sprite(this.largeur-45, this.hauteur-270, 'carreVertOmbre').setOrigin(0,0);
-        this.droitVertOmbre1.setDisplaySize(50,150);
-        this.droitVertOmbre1.body.setAllowGravity(false);
-        this.droitVertOmbre1.setImmovable(true);
-
-        this.droitVert1 = this.physics.add.sprite(this.largeur-30,this.hauteur-245, 'carreVert').setOrigin(0,0);
-        this.droitVert1.setDisplaySize(20,100);
-        this.droitVert1.body.setAllowGravity(false);
-        this.droitVert1.setImmovable(true);
-
-        this.droitVertOmbre2 = this.physics.add.sprite(this.largeur-45, this.hauteur-385, 'carreVertOmbre').setOrigin(0,0);
-        this.droitVertOmbre2.setDisplaySize(50,150);
-        this.droitVertOmbre2.body.setAllowGravity(false);
-        this.droitVertOmbre2.setImmovable(true);
-
-        this.droitVert2 = this.physics.add.sprite(this.largeur-30,this.hauteur-360, 'carreVert').setOrigin(0,0);
-        this.droitVert2.setDisplaySize(20,100);
-        this.droitVert2.body.setAllowGravity(false);
-        this.droitVert2.setImmovable(true);
-
-        this.droitVertOmbre3 = this.physics.add.sprite(this.largeur-45, this.hauteur-500, 'carreVertOmbre').setOrigin(0,0);
-        this.droitVertOmbre3.setDisplaySize(50,150);
-        this.droitVertOmbre3.body.setAllowGravity(false);
-        this.droitVertOmbre3.setImmovable(true);
-
-        this.droitVert3 = this.physics.add.sprite(this.largeur-30,this.hauteur-475, 'carreVert').setOrigin(0,0);
-        this.droitVert3.setDisplaySize(20,100);
-        this.droitVert3.body.setAllowGravity(false);
-        this.droitVert3.setImmovable(true);*/
-
-        //Carrés Vert Gauche
-
-        this.gaucheVertOmbre = this.physics.add.sprite(-5, this.hauteur-155, 'carreVertOmbre').setOrigin(0,0);
-        this.gaucheVertOmbre.setDisplaySize(50,150);
-        this.gaucheVertOmbre.body.setAllowGravity(false);
-        this.gaucheVertOmbre.setImmovable(true);
-
-        this.gaucheVert = this.physics.add.sprite(10,this.hauteur-130, 'carreVert').setOrigin(0,0);
-        this.gaucheVert.setDisplaySize(20,100);
-        this.gaucheVert.body.setAllowGravity(false);
-        this.gaucheVert.setImmovable(true);
-
-        this.gaucheVertOmbre1 = this.physics.add.sprite(-5, this.hauteur-270, 'carreVertOmbre').setOrigin(0,0);
-        this.gaucheVertOmbre1.setDisplaySize(50,150);
-        this.gaucheVertOmbre1.body.setAllowGravity(false);
-        this.gaucheVertOmbre1.setImmovable(true);
-
-        this.gaucheVert1 = this.physics.add.sprite(10,this.hauteur-245, 'carreVert').setOrigin(0,0);
-        this.gaucheVert1.setDisplaySize(20,100);
-        this.gaucheVert1.body.setAllowGravity(false);
-        this.gaucheVert1.setImmovable(true);
-
-        this.gaucheVertOmbre2 = this.physics.add.sprite(-5, this.hauteur-385, 'carreVertOmbre').setOrigin(0,0);
-        this.gaucheVertOmbre2.setDisplaySize(50,150);
-        this.gaucheVertOmbre2.body.setAllowGravity(false);
-        this.gaucheVertOmbre2.setImmovable(true);
-
-        this.gaucheVert2 = this.physics.add.sprite(10,this.hauteur-360, 'carreVert').setOrigin(0,0);
-        this.gaucheVert2.setDisplaySize(20,100);
-        this.gaucheVert2.body.setAllowGravity(false);
-        this.gaucheVert2.setImmovable(true);
-
-        this.gaucheVertOmbre3 = this.physics.add.sprite(-5, this.hauteur-500, 'carreVertOmbre').setOrigin(0,0);
-        this.gaucheVertOmbre3.setDisplaySize(50,150);
-        this.gaucheVertOmbre3.body.setAllowGravity(false);
-        this.gaucheVertOmbre3.setImmovable(true);
-
-        this.gaucheVert3 = this.physics.add.sprite(10,this.hauteur-475, 'carreVert').setOrigin(0,0);
-        this.gaucheVert3.setDisplaySize(20,100);
-        this.gaucheVert3.body.setAllowGravity(false);
-        this.gaucheVert3.setImmovable(true);
-
         //Autre carré
         
         this.centre1Ombre = this.physics.add.sprite(this.largeur/2-5, 0, 'carreBordOmbre').setOrigin(0,0);
@@ -191,18 +77,23 @@ class Tableau1 extends Phaser.Scene{
         this.droit.body.setAllowGravity(false);
         this.droit.setImmovable(true);
 
+
+
         //Balle
 
         this.balle = this.physics.add.sprite(this.largeur/2, this.hauteur/2, 'cercle');
         this.balle.setDisplaySize(20,20);
         this.balle.body.setBounce(1.5,1.5);
-        this.balle.body.setMaxVelocityX(500,500)
-        this.balle.body.setMaxVelocityY(100,100)
+        this.balle.body.setMaxVelocityX(600,600)
+        this.balle.body.setMaxVelocityY(200,200)
+
+
+        this.creationRaquetteVerte();
 
 
         this.Initiale();
 
-        //Collider
+        //Collider Joueur
 
         let me = this;
         this.physics.add.collider(this.balle, this.droit, function () {
@@ -215,6 +106,8 @@ class Tableau1 extends Phaser.Scene{
             me.rebond(me.gauche);
             me.sound.play('raquetteSound')
         });
+
+
 
         //Particles
 
@@ -244,6 +137,63 @@ class Tableau1 extends Phaser.Scene{
         this.joueurDroite = new Joueur('J2','joueurDroite')
     }
 
+
+    creationRaquetteVerte(){
+        let me = this;
+        let rect,ombre;
+        this.obstacles=[];
+        let xValue = 0;
+        let xValueOmbre = 0;
+        let yy = 0;
+        let yyOmbre = 0;
+
+        for(let i=0;i<8;i++){
+
+            if (i<4){
+                xValue = this.largeur-30;
+                xValueOmbre = this.largeur-46;
+                yy = 25+i*115;
+                yyOmbre = i*115;
+            }
+            else {
+                xValue = 10;
+                xValueOmbre = -5;
+                yy= 25+(i-4)*115;
+                yyOmbre = (i-4)*115;
+            }
+
+            ombre = this.physics.add.sprite(
+                xValueOmbre,
+                yyOmbre,
+                'carreVertOmbre'
+            ).setOrigin(0,0);
+
+            ombre.setDisplaySize(50,150);
+            ombre.body.setAllowGravity(false);
+            ombre.setImmovable(true);
+
+            rect = this.physics.add.sprite(
+                xValue,
+                yy,
+                'carreVert'
+            ).setOrigin(0,0);
+            rect.setDisplaySize(20,100);
+            rect.body.setAllowGravity(false);
+            rect.setImmovable(true);
+            rect.ombre=ombre;
+
+            this.obstacles.push(rect);
+
+            this.physics.add.collider(this.balle, rect, function () {
+                console.log("touche droitVert");
+                me.rebond(me.obstacles[i]);
+                me.disparait(me.obstacles[i]);
+                me.sound.play('vertSound');
+            });
+
+        }
+    }
+
     rebond(raquette){
 
         let me=this;
@@ -265,12 +215,16 @@ class Tableau1 extends Phaser.Scene{
 
     }
 
+
+
     disparait(obstacle){
-        let me=this;
-        obstacle.disableBody(true);
+
+        obstacle.body.setEnable(false);
         obstacle.setVisible(false);
         obstacle.ombre.setVisible(false);
     }
+
+
 
     Initiale (){
         let me = this
@@ -296,67 +250,11 @@ class Tableau1 extends Phaser.Scene{
         for(let i=0;i<me.obstacles.length;i++){
             me.obstacles[i].setVisible(true);
             me.obstacles[i].ombre.setVisible(true);
+            me.obstacles[i].body.setEnable(true);
         }
 
-        /**this.collider0 = this.physics.add.collider(this.balle, this.droitVert, function () {
-            console.log("touche droitVert");
-            me.rebond(me.droitVert);
-            me.disparait(me.droitVert);
-        });
-        this.droitVert.setVisible(true);
-        this.droitVertOmbre.setVisible(true);
-
-        this.collider1 = this.physics.add.collider(this.balle, this.droitVert1, function () {
-            console.log("touche droitVert");
-            me.rebond(me.droitVert1);
-        });
-        this.droitVert1.setVisible(true);
-        this.droitVertOmbre1.setVisible(true);
-
-        this.collider2 = this.physics.add.collider(this.balle, this.droitVert2, function () {
-            console.log("touche droitVert");
-            me.rebond(me.droitVert2);
-        });
-        this.droitVert2.setVisible(true);
-        this.droitVertOmbre2.setVisible(true);
-
-        this.collider3 = this.physics.add.collider(this.balle, this.droitVert3, function () {
-            console.log("touche droitVert");
-            me.rebond(me.droitVert3);
-        });
-        this.droitVert3.setVisible(true);
-        this.droitVertOmbre3.setVisible(true);
-
-        
-        
-        this.collider4 = this.physics.add.collider(this.balle, this.gaucheVert, function () {
-            console.log("touche gaucheVert");
-            me.rebond(me.gaucheVert);
-        });
-        this.gaucheVert.setVisible(true);
-        this.gaucheVertOmbre.setVisible(true);
-
-        this.collider5 = this.physics.add.collider(this.balle, this.gaucheVert1, function () {
-            console.log("touche gaucheVert");
-            me.rebond(me.gaucheVert1);
-        });
-        this.gaucheVert1.setVisible(true);
-        this.gaucheVertOmbre1.setVisible(true);
-
-        this.collider6 = this.physics.add.collider(this.balle, this.gaucheVert2, function () {
-            console.log("touche gaucheVert");
-            me.rebond(me.gaucheVert2);
-        });
-        this.gaucheVert2.setVisible(true);
-        this.gaucheVertOmbre2.setVisible(true);
-
-        this.collider7 = this.physics.add.collider(this.balle, this.gaucheVert3, function () {
-            console.log("touche gaucheVert");
-            me.rebond(me.gaucheVert3);
-        });
-        this.gaucheVert3.setVisible(true);
-        this.gaucheVertOmbre3.setVisible(true);*/
     }
+
 
     /**
      *
@@ -423,6 +321,8 @@ class Tableau1 extends Phaser.Scene{
         });
     }
 
+
+
     update(){
         if(this.balle.x > this.largeur){
             this.win(this.joueurGauche);
@@ -436,74 +336,6 @@ class Tableau1 extends Phaser.Scene{
         if(this.balle.y > this.hauteur){
             this.balle.y = this.hauteur
         }
-        /**if (this.balle.x >= this.droitVert.x-10 && this.balle.y >= this.droitVert.y){
-            if (this.balle.y <= this.droitVert.y+110) {
-                this.droitVert.setVisible(false);
-                this.droitVertOmbre.setVisible(false);
-                this.physics.world.removeCollider(this.collider0);
-                this.sound.play('vertSound');
-            }
-        }
-        if (this.balle.x >= this.droitVert1.x-10 && this.balle.y >= this.droitVert1.y-5){
-            if (this.balle.y <= this.droitVert1.y+110) {
-                this.droitVert1.setVisible(false);
-                this.droitVertOmbre1.setVisible(false);
-                this.physics.world.removeCollider(this.collider1);
-                this.sound.play('vertSound');
-            }
-        }
-        if (this.balle.x >= this.droitVert2.x-10 && this.balle.y >= this.droitVert2.y-5){
-            if (this.balle.y <= this.droitVert2.y+110) {
-                this.droitVert2.setVisible(false);
-                this.droitVertOmbre2.setVisible(false);
-                this.physics.world.removeCollider(this.collider2);
-                this.sound.play('vertSound');
-            }
-        }
-
-        if (this.balle.x >= this.droitVert3.x-10 && this.balle.y >= this.droitVert3.y-5){
-            if (this.balle.y <= this.droitVert3.y+110){
-                this.droitVert3.setVisible(false);
-                this.droitVertOmbre3.setVisible(false);
-                this.physics.world.removeCollider(this.collider3);
-                this.sound.play('vertSound');
-            }
-
-        }
-
-        if (this.balle.x <= this.gaucheVert.x+30 && this.balle.y >= this.gaucheVert.y){
-            if (this.balle.y <= this.gaucheVert.y+110) {
-                this.gaucheVert.setVisible(false);
-                this.gaucheVertOmbre.setVisible(false);
-                this.physics.world.removeCollider(this.collider4);
-                this.sound.play('vertSound');
-            }
-        }
-        if (this.balle.x <= this.gaucheVert1.x+30 && this.balle.y >= this.gaucheVert1.y-5){
-            if (this.balle.y <= this.gaucheVert1.y+110) {
-                this.gaucheVert1.setVisible(false);
-                this.gaucheVertOmbre1.setVisible(false);
-                this.physics.world.removeCollider(this.collider5);
-                this.sound.play('vertSound');
-            }
-        }
-        if (this.balle.x <= this.gaucheVert2.x+30 && this.balle.y >= this.gaucheVert2.y-5){
-            if (this.balle.y <= this.gaucheVert2.y+110) {
-                this.gaucheVert2.setVisible(false);
-                this.gaucheVertOmbre2.setVisible(false);
-                this.physics.world.removeCollider(this.collider6);
-                this.sound.play('vertSound');
-            }
-        }
-
-        if (this.balle.x <= this.gaucheVert3.x+30 && this.balle.y >= this.gaucheVert3.y-5){
-            if (this.balle.y <= this.gaucheVert3.y+110) {
-                this.gaucheVert3.setVisible(false);
-                this.gaucheVertOmbre3.setVisible(false);
-                this.physics.world.removeCollider(this.collider3);
-                this.sound.play('vertSound');
-            }
-        }*/
     }
 
 

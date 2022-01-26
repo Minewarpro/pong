@@ -18,4 +18,6 @@ class Joueur {
         this.$name.textContent=name;
 
     }
+
+
 }
