@@ -16,6 +16,7 @@ class Tableau1 extends Phaser.Scene{
         this.load.image('carreVert', 'assets/carreVert.png');
         this.load.audio('raquetteSound', 'assets/sounds/raquetteSound.wav');
         this.load.audio('vertSound', 'assets/sounds/vertSound.wav');
+        this.load.audio('startSound', 'assets/sounds/start.wav');
     }
 
 
@@ -253,6 +254,7 @@ class Tableau1 extends Phaser.Scene{
             me.obstacles[i].body.setEnable(true);
         }
 
+        me.sound.play('startSound');
     }
 
 
