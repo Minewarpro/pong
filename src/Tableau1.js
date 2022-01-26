@@ -90,9 +90,9 @@ class Tableau1 extends Phaser.Scene{
 
         this.balle = this.physics.add.sprite(this.largeur/2, this.hauteur/2, 'cercle');
         this.balle.setDisplaySize(20,20);
-        this.balle.body.setBounce(1.5,1.5);
-        this.balle.body.setMaxVelocityX(600,600)
-        this.balle.body.setMaxVelocityY(200,200)
+        this.balle.body.setBounce(1.3,1.3);
+        this.balle.body.setMaxVelocityX(900,900)
+        this.balle.body.setMaxVelocityY(400,400)
 
 
         /**
@@ -292,21 +292,21 @@ class Tableau1 extends Phaser.Scene{
             switch (kevent.keyCode)
             {
                 case Phaser.Input.Keyboard.KeyCodes.S:
-                    me.gauche.setVelocityY(-200)
-                    me.gaucheOmbre.setVelocityY(-200)
+                    me.gauche.setVelocityY(-400)
+                    me.gaucheOmbre.setVelocityY(-400)
                     break;
                 case Phaser.Input.Keyboard.KeyCodes.X:
-                    me.gauche.setVelocityY(200)
-                    me.gaucheOmbre.setVelocityY(200)
+                    me.gauche.setVelocityY(400)
+                    me.gaucheOmbre.setVelocityY(400)
                     break;
 
                 case Phaser.Input.Keyboard.KeyCodes.J:
-                    me.droit.setVelocityY(-200)
-                    me.droitOmbre.setVelocityY(-200)
+                    me.droit.setVelocityY(-400)
+                    me.droitOmbre.setVelocityY(-400)
                     break;
                 case Phaser.Input.Keyboard.KeyCodes.N:
-                    me.droit.setVelocityY(200)
-                    me.droitOmbre.setVelocityY(200)
+                    me.droit.setVelocityY(400)
+                    me.droitOmbre.setVelocityY(400)
                     break;
 
             }
