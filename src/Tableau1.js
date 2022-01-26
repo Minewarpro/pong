@@ -148,6 +148,8 @@ class Tableau1 extends Phaser.Scene{
 
         this.joueurGauche = new Joueur('J1','joueurGauche')
         this.joueurDroite = new Joueur('J2','joueurDroite')
+
+        //this.text=this.add.text(this.hauteur/2-300, 350, 'Press Space To Start').setOrigin(0,0).setFontSize(50);
     }
 
 
