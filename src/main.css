@@ -3,16 +3,15 @@ body{
     font-size: 12px;
     background-color: #000000;
     text-align: center;
-    background-image: url(https://raw.githubusercontent.com/Minewarpro/pong/main/assets/Fond7.jpg);
+    background-image: url(https://raw.githubusercontent.com/Minewarpro/pong/main/assets/Fond.jpg);
     background-repeat:no-repeat;
     background-size: cover;
-    height: 100vh;
-    width: 100vw;
-    background-position: center;
+    background-position: 100%,100%;
     overflow: hidden;
+    padding: 0;
 }
 a{
-    color: #ffffff;
+    color: #f700ff;
     text-transform: uppercase;
     text-decoration: none;
     transition: color 1s;
