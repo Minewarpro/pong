@@ -28,7 +28,9 @@ class Tableau1 extends Phaser.Scene{
         this.hauteur = 500
         this.largeur = 1000
 
-        //Autre carré
+        /**
+         * Bord de l'écran et careé central
+         */
         
         this.centre1Ombre = this.physics.add.sprite(this.largeur/2-5, 0, 'carreBordOmbre').setOrigin(0,0);
         this.centre1Ombre.setDisplaySize(10,this.hauteur);
@@ -57,6 +59,9 @@ class Tableau1 extends Phaser.Scene{
         this.bas.body.setAllowGravity(false);
         this.bas.setImmovable(true);
 
+        /**
+         * Raquettes des Joueurs
+         */
 
         this.gaucheOmbre = this.physics.add.sprite(45, this.hauteur/2-75, 'carreOmbre').setOrigin(0,0);
         this.gaucheOmbre.setDisplaySize(50,150);
@@ -79,8 +84,9 @@ class Tableau1 extends Phaser.Scene{
         this.droit.setImmovable(true);
 
 
-
-        //Balle
+        /**
+         * Balle
+         */
 
         this.balle = this.physics.add.sprite(this.largeur/2, this.hauteur/2, 'cercle');
         this.balle.setDisplaySize(20,20);
@@ -89,12 +95,9 @@ class Tableau1 extends Phaser.Scene{
         this.balle.body.setMaxVelocityY(200,200)
 
 
-        this.creationRaquetteVerte();
-
-
-        this.Initiale();
-
-        //Collider Joueur
+        /**
+         * Collider
+         */
 
         let me = this;
         this.physics.add.collider(this.balle, this.droit, function () {
@@ -109,8 +112,9 @@ class Tableau1 extends Phaser.Scene{
         });
 
 
-
-        //Particles
+        /**
+         * Particles
+         */
 
          this.particles = this.add.particles('cercle');
 
@@ -131,6 +135,13 @@ class Tableau1 extends Phaser.Scene{
         this.physics.add.collider(this.balle, this.haut);
         this.physics.add.collider(this.balle, this.bas);
 
+        /**
+         * Initilisation des fonctions et classes
+         */
+
+        this.creationRaquetteVerte();
+
+        this.Initiale();
 
         this.initKeyboard();
 
