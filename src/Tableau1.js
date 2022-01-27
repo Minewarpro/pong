@@ -14,7 +14,7 @@ class Tableau1 extends Phaser.Scene{
         this.load.image('carreBordOmbre', 'assets/carreBordOmbre.png');
         this.load.image('carreVertOmbre', 'assets/carreVertOmbre.png');
         this.load.image('carreVert', 'assets/carreVert.png');
-        this.load.image('ecranAccueil', 'assets/ecranAccueil.jpg');
+        this.load.image('ecranAccueil', 'assets/acceuil.jpg');
         this.load.audio('raquetteSound', 'assets/sounds/raquetteSound.wav');
         this.load.audio('vertSound', 'assets/sounds/vertSound.wav');
         this.load.audio('startSound', 'assets/sounds/start.wav');
@@ -150,7 +150,7 @@ class Tableau1 extends Phaser.Scene{
     }
 
     create(){
-        this.ecranAccueil = this.add.image(-20, 0, 'ecranAccueil').setOrigin(0,0);
+        this.ecranAccueil = this.add.image(0, 0, 'ecranAccueil').setOrigin(0,0);
         this.vertSound = this.sound.add('vertSound');
         this.raquetteSound = this.sound.add('raquetteSound');
         this.backSound = this.sound.add('backSound');
