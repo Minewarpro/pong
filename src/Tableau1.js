@@ -9,6 +9,7 @@ class Tableau1 extends Phaser.Scene{
         this.load.image('carre', 'assets/carre.png');
         this.load.image('cercle', 'assets/cercle.png');
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> parent of e459c8a (jump)
@@ -31,6 +32,8 @@ class Tableau1 extends Phaser.Scene{
 
 =======
 >>>>>>> parent of e459c8a (jump)
+=======
+>>>>>>> parent of 5323709 (b)
     }
 
     Play(){
@@ -88,6 +91,7 @@ class Tableau1 extends Phaser.Scene{
         });
     }
 
+<<<<<<< HEAD
     create(){
         this.ecranAccueil = this.add.image(-20, 0, 'ecranAccueil').setOrigin(0,0);
         this.vertSound = this.sound.add('vertSound');
@@ -97,6 +101,8 @@ class Tableau1 extends Phaser.Scene{
         this.backSound.volume = 0.3;
         this.backSound.loop = true;
         this.lockScreen = 0;
+=======
+>>>>>>> parent of 5323709 (b)
         this.initKeyboard();
     }
 =======
