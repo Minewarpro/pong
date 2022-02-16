@@ -8,6 +8,20 @@ class Tableau1 extends Phaser.Scene {
     preload() {
         this.load.image('carre', 'assets/carre.png');
         this.load.image('cercle', 'assets/cercle.png');
+<<<<<<< HEAD
+=======
+        this.load.image('carreOmbre', 'assets/carreOmbre.png');
+        this.load.image('cercleOmbre', 'assets/cercleOmbre.png');
+        this.load.image('carreBord', 'assets/carreBord.png');
+        this.load.image('carreBordOmbre', 'assets/carreBordOmbre.png');
+        this.load.image('carreVertOmbre', 'assets/carreVertOmbre.png');
+        this.load.image('carreVert', 'assets/carreVert.png');
+        this.load.image('ecranAccueil', 'assets/ecranAccueil.jpg');
+        this.load.audio('raquetteSound', 'assets/sounds/raquetteSound.wav');
+        this.load.audio('vertSound', 'assets/sounds/vertSound.wav');
+        this.load.audio('startSound', 'assets/sounds/start.wav');
+        this.load.audio('backSound', 'assets/sounds/backSound.mp3');
+>>>>>>> parent of a01bfc0 (Assets)
     }
 
 
@@ -35,6 +49,18 @@ class Tableau1 extends Phaser.Scene {
             this.doubleJump=1;
         });
 
+<<<<<<< HEAD
+=======
+    create(){
+        this.ecranAccueil = this.add.image(-20, 0, 'ecranAccueil').setOrigin(0,0);
+        this.vertSound = this.sound.add('vertSound');
+        this.raquetteSound = this.sound.add('raquetteSound');
+        this.backSound = this.sound.add('backSound');
+        this.backSound.play()
+        this.backSound.volume = 0.3;
+        this.backSound.loop = true;
+        this.lockScreen = 0;
+>>>>>>> parent of a01bfc0 (Assets)
         this.initKeyboard();
     }
 
