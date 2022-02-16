@@ -8,8 +8,7 @@ class Tableau1 extends Phaser.Scene {
     preload() {
         this.load.image('carre', 'assets/carre.png');
         this.load.image('cercle', 'assets/cercle.png');
-<<<<<<< HEAD
-=======
+
         this.load.image('carreOmbre', 'assets/carreOmbre.png');
         this.load.image('cercleOmbre', 'assets/cercleOmbre.png');
         this.load.image('carreBord', 'assets/carreBord.png');
@@ -21,36 +20,34 @@ class Tableau1 extends Phaser.Scene {
         this.load.audio('vertSound', 'assets/sounds/vertSound.wav');
         this.load.audio('startSound', 'assets/sounds/start.wav');
         this.load.audio('backSound', 'assets/sounds/backSound.mp3');
->>>>>>> parent of a01bfc0 (Assets)
+
     }
 
 
     create() {
         this.power = 0;
         this.power2 = 500;
-        this.doubleJump=0;
+        this.doubleJump = 0;
 
 
-
-        this.sol = this.physics.add.sprite(0,700, 'carre').setOrigin(0,0);
+        this.sol = this.physics.add.sprite(0, 700, 'carre').setOrigin(0, 0);
         this.sol.setTintFill(0xFFFFFF);
-        this.sol.setDisplaySize(2000,100);
+        this.sol.setDisplaySize(2000, 100);
         this.sol.body.setAllowGravity(false);
         this.sol.setImmovable(true);
 
-        this.balle = this.physics.add.sprite(100,500, 'cercle').setOrigin(0,0);
+        this.balle = this.physics.add.sprite(100, 500, 'cercle').setOrigin(0, 0);
         this.balle.setTintFill(0xFF0000);
-        this.balle.setDisplaySize(50,50);
+        this.balle.setDisplaySize(50, 50);
         this.balle.body.debugShowBody = true;
         this.balle.body.debugBodyColor = 0xff00ff;
 
 
         this.physics.add.collider(this.balle, this.sol, function () {
-            this.doubleJump=1;
+            this.doubleJump = 1;
         });
+    }
 
-<<<<<<< HEAD
-=======
     create(){
         this.ecranAccueil = this.add.image(-20, 0, 'ecranAccueil').setOrigin(0,0);
         this.vertSound = this.sound.add('vertSound');
@@ -60,7 +57,6 @@ class Tableau1 extends Phaser.Scene {
         this.backSound.volume = 0.3;
         this.backSound.loop = true;
         this.lockScreen = 0;
->>>>>>> parent of a01bfc0 (Assets)
         this.initKeyboard();
     }
 
@@ -83,24 +79,7 @@ class Tableau1 extends Phaser.Scene {
         console.log(this.power2);
     }
 
-    /**
-    startJump(){
-        this.timer = this.time.addEvent({delay : 100, callback: this.tick, callbackScope: this, loop: true});
-    }
-    endJump(){
-        this.timer.remove();
-        this.balle.setVelocityY(-this.power*100);
-        this.power=0;
-        console.log(this.power);
-    }
-    tick(){
-        if (this.power<3){
-            this.power+=.2;
-            console.log(this.power);
-        }
 
-    }
-     **/
 
     initKeyboard() {
         let me = this;
