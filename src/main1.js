@@ -1,13 +1,13 @@
 let gameConfig = {
     type: Phaser.AUTO,
-    width: 1500,
-    height: 800,
+    width: 1000,
+    height: 500,
     backgroundColor: '#000000',
     parent: 'game',
     physics: {
         default: 'arcade',
         arcade: {
-            gravity: { y: 500}
+            gravity: { y: 0 }
         }
     },
     scene: new Tableau1()
