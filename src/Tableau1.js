@@ -8,32 +8,22 @@ class Tableau1 extends Phaser.Scene{
     preload(){
         this.load.image('carre', 'assets/carre.png');
         this.load.image('cercle', 'assets/cercle.png');
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> parent of e459c8a (jump)
+
         this.load.image('carreOmbre', 'assets/carreOmbre.png');
         this.load.image('cercleOmbre', 'assets/cercleOmbre.png');
         this.load.image('carreBord', 'assets/carreBord.png');
         this.load.image('carreBordOmbre', 'assets/carreBordOmbre.png');
         this.load.image('carreVertOmbre', 'assets/carreVertOmbre.png');
         this.load.image('carreVert', 'assets/carreVert.png');
-<<<<<<< HEAD
-        this.load.image('ecranAccueil', 'assets/ecranAccueil.jpg');
-=======
         this.load.image('ecranAccueil', 'assets/acceuil.jpg');
->>>>>>> parent of e459c8a (jump)
         this.load.audio('raquetteSound', 'assets/sounds/raquetteSound.wav');
         this.load.audio('vertSound', 'assets/sounds/vertSound.wav');
         this.load.audio('startSound', 'assets/sounds/start.wav');
         this.load.audio('backSound', 'assets/sounds/backSound.mp3');
-<<<<<<< HEAD
 
-=======
->>>>>>> parent of e459c8a (jump)
-=======
->>>>>>> parent of 5323709 (b)
+
+
     }
 
     Play(){
@@ -42,26 +32,6 @@ class Tableau1 extends Phaser.Scene{
             /**
              * Bord de l'écran et carré central
              */
-
-<<<<<<< HEAD
-    create() {
-        this.power = 0;
-        this.power2 = 500;
-        this.doubleJump = 0;
-
-
-        this.sol = this.physics.add.sprite(0, 700, 'carre').setOrigin(0, 0);
-        this.sol.setTintFill(0xFFFFFF);
-        this.sol.setDisplaySize(2000, 100);
-        this.sol.body.setAllowGravity(false);
-        this.sol.setImmovable(true);
-
-        this.balle = this.physics.add.sprite(100, 500, 'cercle').setOrigin(0, 0);
-        this.balle.setTintFill(0xFF0000);
-        this.balle.setDisplaySize(50, 50);
-        this.balle.body.debugShowBody = true;
-        this.balle.body.debugBodyColor = 0xff00ff;
-=======
             this.centre1Ombre = this.physics.add.sprite(this.largeur/2-5, 0, 'carreBordOmbre').setOrigin(0,0);
             this.centre1Ombre.setDisplaySize(10,this.hauteur);
             this.centre1Ombre.body.setAllowGravity(false);
@@ -78,34 +48,13 @@ class Tableau1 extends Phaser.Scene{
             this.haut.body.setAllowGravity(false);
             this.haut.setImmovable(true);
 
->>>>>>> parent of e459c8a (jump)
 
             this.basOmbre=this.physics.add.sprite(-this.largeur/2,this.hauteur-15, 'carreBordOmbre').setOrigin(0,0);
             this.basOmbre.setDisplaySize(this.largeur*2,20);
             this.basOmbre.body.setAllowGravity(false);
             this.basOmbre.setImmovable(true);
 
-<<<<<<< HEAD
-        this.physics.add.collider(this.balle, this.sol, function () {
-            this.doubleJump = 1;
-        });
-    }
 
-<<<<<<< HEAD
-    create(){
-        this.ecranAccueil = this.add.image(-20, 0, 'ecranAccueil').setOrigin(0,0);
-        this.vertSound = this.sound.add('vertSound');
-        this.raquetteSound = this.sound.add('raquetteSound');
-        this.backSound = this.sound.add('backSound');
-        this.backSound.play()
-        this.backSound.volume = 0.3;
-        this.backSound.loop = true;
-        this.lockScreen = 0;
-=======
->>>>>>> parent of 5323709 (b)
-        this.initKeyboard();
-    }
-=======
             this.bas=this.physics.add.sprite(0,this.hauteur-5, 'carreBord').setOrigin(0,0);
             this.bas.setDisplaySize(this.largeur,20);
             this.bas.body.setAllowGravity(false);
@@ -196,7 +145,7 @@ class Tableau1 extends Phaser.Scene{
 
             this.Initiale();
 
->>>>>>> parent of e459c8a (jump)
+
 
             this.joueurGauche = new Joueur('J1','joueurGauche')
             this.joueurDroite = new Joueur('J2','joueurDroite')
@@ -280,9 +229,7 @@ class Tableau1 extends Phaser.Scene{
         }
     }
 
-<<<<<<< HEAD
 
-=======
     rebond(raquette){
 
         let me=this;
@@ -358,7 +305,7 @@ class Tableau1 extends Phaser.Scene{
     }
 
 
->>>>>>> parent of e459c8a (jump)
+
 
     initKeyboard() {
         let me=this;
